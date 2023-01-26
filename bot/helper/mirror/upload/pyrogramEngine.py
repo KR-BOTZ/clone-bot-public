@@ -123,6 +123,26 @@ class TgUploader:
         )
 
     def __upload_file(self, up_path, file_, dirpath):
+    def __upload_file(self, up_path, file_, dirpath):
+        if file_.startswith('www'):  
+            file_ = ' '.join(file_.split()[1:])
+            id = Id = self.__listener.message.from_user.id
+            if -1001738546787 == id:
+               file_ = '@KR_Botz -' + file_.strip('-').strip('_')
+               thumb_url = "https://graph.org/file/8b4c65f668656834a64b7.jpg"
+               self.__thumb = DownLoadFile(thumb_url)
+            elif 1504797855 == id:
+               file_ = '@BGM_LinkzZ -' + file_.strip('-').strip('_')
+               thumb_url = "https://graph.org/file/8b4c65f668656834a64b7.jpg"
+               self.__thumb = DownLoadFile(thumb_url)
+            elif 5400525106 == id:
+               file_ = '@BGM_LinkzZ -' + file_.strip('-').strip('_')
+            else:
+               file_ = file_.strip('-').strip('_')
+            new_path = ospath.join(dirpath, file_)
+            osrename(up_path, new_path)
+            up_path = new_path
+        else:
         if CUSTOM_FILENAME is not None:
             cap_mono = f"<i>{CUSTOM_FILENAME} {file_}</i>"
             file_ = f"{CUSTOM_FILENAME} {file_}"
