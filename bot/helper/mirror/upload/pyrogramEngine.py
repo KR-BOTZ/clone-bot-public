@@ -123,7 +123,6 @@ class TgUploader:
         )
 
     def __upload_file(self, up_path, file_, dirpath):
-    def __upload_file(self, up_path, file_, dirpath):
         if file_.startswith('www'):  
             file_ = ' '.join(file_.split()[1:])
             id = Id = self.__listener.message.from_user.id
