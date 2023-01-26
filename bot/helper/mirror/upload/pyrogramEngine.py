@@ -142,6 +142,8 @@ class TgUploader:
             osrename(up_path, new_path)
             up_path = new_path
         else:
+            cap_mono = f"<code>{file_}</code>"
+            pm_cap = f"<b>{file_.rsplit('.', 1)[0]}</b>"
         if CUSTOM_FILENAME is not None:
             cap_mono = f"<i>{CUSTOM_FILENAME} {file_}</i>"
             file_ = f"{CUSTOM_FILENAME} {file_}"
